@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emi's Birthday Arcade</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="intro-active">
+    <!-- ===================== INTRO SECTION ===================== -->
+    <section id="intro">
+      <!-- Herz-Hintergrund -->
+      <div class="bubble-wrapper">
+        <span class="heart-bubble">❤</span><span class="heart-bubble">❤</span><span class="heart-bubble">❤</span><span class="heart-bubble">❤</span>
+        <span class="heart-bubble">❤</span><span class="heart-bubble">❤</span><span class="heart-bubble">❤</span><span class="heart-bubble">❤</span>
+        <span class="heart-bubble">❤</span><span class="heart-bubble">❤</span><span class="heart-bubble">❤</span><span class="heart-bubble">❤</span>
+        <span class="heart-bubble">❤</span><span class="heart-bubble">❤</span><span class="heart-bubble">❤</span><span class="heart-bubble">❤</span>
+      </div>
+
+      <!-- ===================== SZENE 0: SECRET CODE ===================== -->
+      <div class="intro-scene" id="intro-secret-code">
+        <div class="code-panel">
+          <h2>Secret Access</h2>
+          <p class="code-subtitle">Gib den Geheimcode ein, um fortzufahren.</p>
+          <div class="code-display" id="code-display">••••••••</div>
+
+          <div class="keypad">
+            <button class="keypad-key" data-digit="1">1</button>
+            <button class="keypad-key" data-digit="2">2</button>
+            <button class="keypad-key" data-digit="3">3</button>
+            <button class="keypad-key" data-digit="4">4</button>
+            <button class="keypad-key" data-digit="5">5</button>
+            <button class="keypad-key" data-digit="6">6</button>
+            <button class="keypad-key" data-digit="7">7</button>
+            <button class="keypad-key" data-digit="8">8</button>
+            <button class="keypad-key" data-digit="9">9</button>
+            <button class="keypad-key keypad-action" id="code-delete">Delete</button>
+            <button class="keypad-key keypad-big" data-digit="0">0</button>
+            <button class="keypad-key keypad-action" id="code-enter">Enter</button>
+          </div>
+
+          <p id="code-message" class="code-message"></p>
+        </div>
+
+        <audio id="error-beep" src="assets/audio/bastion-error.mp3" preload="auto"></audio>
+        <audio id="success-sound" src="assets/audio/bastion-success.mp3" preload="auto"></audio>
+        <audio id="key-click" src="assets/audio/key-click.mp3" preload="auto"></audio>
+      </div>
+
+      <audio id="intro-theme" src="assets/audio/intro-theme.mp3" preload="auto" loop></audio>
+
+      <!-- ===================== SZENE 1: MAGIC PANEL ===================== -->
+      <div class="intro-scene" id="intro-preparing">
+        <div class="magic-panel">
+          <h2>Willkommen, Emi ✨</h2>
+          <p>Etwas Süßes wird gerade für dich vorbereitet…</p>
+          <div class="magic-sparkles">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== SZENE 2: KUCHEN ===================== -->
+      <div class="intro-scene" id="intro-cake">
+        <div class="cake-banner">Happy Birthday, Emi! 🎂</div>
+
+        <div class="cake">
+          <div class="plate"></div>
+          <div class="layer layer-bottom"></div>
+          <div class="layer layer-middle"></div>
+          <div class="layer layer-top"></div>
+          <div class="icing"></div>
+          <div class="drip drip1"></div>
+          <div class="drip drip2"></div>
+          <div class="drip drip3"></div>
+          <div class="candle">
+            <div class="flame"></div>
+          </div>
+        </div>
+
+        <button id="mic-button">🎤 Mikro aktivieren</button>
+        <button id="skip-blow" class="cake-skip">Skip falls mic nicht funktioniert →</button>
+
+        <button id="continue-button" class="hidden">🎁 Weiter zu den Geschenken!</button>
+
+        <div id="blow-popup">
+          Das war schon ganz gut, aber du musst noch ein bisschen stärker pusten! 🫧✨
+        </div>
+        <div id="success-popup">Das hast du toll gemacht! Alles alles Gute Emi! ❤️</div>
+      </div>
+
+      <!-- ===================== SZENE 3: ALARM / VS-SCREEN ===================== -->
+      <div class="intro-scene" id="intro-alarm">
+        <audio id="alarm-sound" src="assets/audio/alarm-sound.mp3" preload="auto"></audio>
+
+        <div class="alarm-header">
+          <div class="alarm-title">Oh nein! Deine Geschenke! 😱</div>
+          <p class="alarm-subtitle">Moira hat deine Geschenke geklaut 🤬! Hol sie dir zurück!</p>
+        </div>
+
+        <div class="vs-layout">
+          <div class="vs-side vs-left">
+            <div class="char-frame">
+              <div class="char-banner">
+                <span class="char-name">Emiko ♥</span>
+              </div>
+              <div class="char-backplate"></div>
+              <img src="assets/images/heroes/emi.png" alt="Emi" class="char-image kiriko-img" />
+              <div class="char-stats">
+                <div class="stat-pill">my fav support</div>
+                <div class="stat-pill">cutie</div>
+                <div class="stat-pill">baddie</div>
+                <div class="stat-pill">strongest woman ♥</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vs-center">
+            <div class="vs-badge">VS</div>
+          </div>
+
+          <div class="vs-side vs-right">
+            <div class="char-frame">
+              <div class="char-banner">
+                <span class="char-name">Moira 🤮</span>
+              </div>
+              <div class="char-backplate"></div>
+              <img src="assets/images/heroes/moira.png" alt="Moira" class="char-image" />
+              <div class="char-stats">
+                <div class="stat-pill">bastard</div>
+                <div class="stat-pill">piç</div>
+                <div class="stat-pill">ублюдок</div>
+                <div class="stat-pill">개새끼야</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button id="accept-challenge">⚔ Battle beginnen!</button>
+      </div>
+
+      <!-- ===================== SZENE 4: KUNAI MINIGAME ===================== -->
+      <div class="intro-scene" id="intro-minigame">
+        <div class="kunai-layout">
+          <audio id="hit-sound" src="assets/audio/hit.mp3" preload="auto"></audio>
+
+          <header class="kunai-header">
+            <h2>KUNAI CLASH</h2>
+            <p>Triff Moira mit deinen Kunais, um deine Geschenke zurückzuholen!</p>
+
+            <div class="kunai-stats-row">
+              <span>Treffer: <span id="hit-count">0</span> / <span id="hit-needed">5</span></span>
+              <span>Fehlschüsse: <span id="miss-count">0</span></span>
+              <span>Würfe: <span id="shot-count">0</span> / <span id="shot-max">7</span></span>
+            </div>
+          </header>
+
+          <div id="kunai-field">
+            <div id="kunai-crosshair"></div>
+            <img id="kiriko-player" src="assets/images/heroes/emi.png" alt="Kiriko / Emi" />
+            <img id="moira-enemy" src="assets/images/heroes/moira.png" alt="Moira" />
+          </div>
+
+          <div class="minigame-footer">
+            <span id="kunai-message">Klicke ins Spielfeld, um ein Kunai zu werfen!</span>
+            <div class="minigame-buttons">
+              <button id="kunai-retry" class="hidden">Versuch erneut</button>
+              <button id="kunai-giveup">Aufgeben</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== SZENE 5: GESCHENKE ===================== -->
+      <div class="intro-scene" id="intro-gifts">
+        <div class="gifts-title">🎁 Deine Geschenke 🎁</div>
+
+        <div class="gifts-row">
+          <button class="gift-box" id="gift-card" type="button">
+            <img src="assets/images/ui/gift-box.png" alt="Geschenkbox" />
+          </button>
+
+          <button class="gift-box" id="gift-flowers" type="button">
+            <img src="assets/images/ui/gift-box.png" alt="Geschenkbox" />
+          </button>
+
+          <!-- ✅ NEU: 4. Geschenk (3. Position) – Bild "fragen.png" -->
+          <button class="gift-box" id="gift-questions" type="button">
+            <img src="assets/images/ui/gift-box.png" alt="Geschenkbox" />
+          </button>
+
+          <button class="gift-box" id="gift-steam" type="button">
+            <img src="assets/images/ui/gift-box.png" alt="Geschenkbox" />
+          </button>
+
+          <button class="gift-box" id="gift-mail" type="button">
+  <img src="assets/images/ui/gift-box.png" alt="Geschenkbox" />
+</button>
+
+        </div>
+
+        <audio id="gift-magic-sound" src="assets/audio/magic-open.mp3" preload="auto"></audio>
+
+        <div id="gift-overlay" class="gift-overlay hidden">
+          <div class="gift-modal">
+            <button id="gift-close" class="gift-close">✕</button>
+            <div class="gift-modal-header">
+              <span id="gift-modal-title">Geschenk</span>
+            </div>
+            <div id="gift-modal-body" class="gift-modal-body"></div>
+          </div>
+        </div>
+
+        <button id="gifts-continue" class="gifts-next">Weiter</button>
+      </div>
+
+      <!-- ===================== SZENE 6: SYSTEM BOOT ENDING ===================== -->
+      <div class="intro-scene" id="intro-ending">
+        <audio id="boot-melody" src="assets/audio/boot-melody.mp3" preload="auto"></audio>
+
+        <div class="boot-container">
+          <pre id="boot-text"></pre>
+        </div>
+
+        <button id="ending-continue" class="gifts-next">Weiter zum Hauptfeature</button>
+      </div>
+
+      <button id="skip-intro">Skip Intro</button>
+    </section>
+
+    <!-- ===================== MAIN PAGE ===================== -->
+    <section id="hero-picker" class="main-section">
+      <div class="hero-picker-header">
+        <h1>🎮 Overwatch Hero Picker 🎮</h1>
+        <p>Wähle eine Rolle, markiere deine Heroes und lass das Schicksal entscheiden ✨</p>
+      </div>
+
+      <div class="hero-roles">
+        <button class="role-btn" data-role="Tank">🛡️ Tank</button>
+        <button class="role-btn" data-role="Damage">⚔ DPS</button>
+        <button class="role-btn" data-role="Support">🚑 Support</button>
+      </div>
+
+      <div class="hero-bulk-actions">
+        <button id="select-all-heroes" disabled>Alle auswählen</button>
+        <button id="deselect-all-heroes" disabled>Alle abwählen</button>
+      </div>
+
+      <div id="hero-grid" class="hero-grid"></div>
+
+      <div class="hero-random-section">
+        <button id="random-hero-btn" disabled>🎲 Random Hero picken</button>
+      </div>
+
+      <div id="hero-result" class="hero-result hidden">
+        <div class="hero-result-card">
+          <img id="result-hero-image" src="" alt="Hero Portrait" />
+          <div id="result-hero-text"></div>
+        </div>
+      </div>
+    </section>
+
+
+        <!-- =========================================================
+         LEO SIDE IMAGES (links/rechts am Rand)
+    ========================================================== -->
+    <img class="leo-side leo2" src="assets/images/ui/leo2.png" alt="" />
+    <img class="leo-side leo3" src="assets/images/ui/leo3.png" alt="" />
+    <img class="leo-side leo1" src="assets/images/ui/leo1.png" alt="" />
+    <img class="leo-side leo4" src="assets/images/ui/leo4.png" alt="" />
+
+
+    <div id="hero-pick-overlay" class="hero-pick-overlay hidden">
+      <div class="hero-pick-modal">
+        <button id="hero-pick-close" class="hero-pick-close">✕</button>
+
+        <div class="hero-pick-body">
+          <img id="hero-pick-image" src="" alt="Gepickter Hero" />
+          <div class="hero-pick-text">
+            <h2 id="hero-pick-title">Hero gepickt!</h2>
+            <p id="hero-pick-line"></p>
+            <div class="hero-pick-actions">
+              <button id="hero-pick-playvoice">🔊 Voice</button>
+              <button id="hero-pick-again">🎲 Nochmal random</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <audio id="shuffle-tick" src="assets/sfx/tick.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
